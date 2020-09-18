@@ -19,11 +19,10 @@ fi
 
 echo "Installing protobuf compilers...."
 
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/$PROTOC_ZIP
 
-# wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/$PROTOC_ZIP
-
-# sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
-# sudo unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
+sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+sudo unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
 
 echo "Cleaning up..."
 rm -f $PROTOC_ZIP
