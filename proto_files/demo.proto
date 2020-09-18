@@ -1,0 +1,14 @@
+syntax="proto3";
+
+message PrimeValue {
+    int32 value = 1;
+}
+
+message PrimeValueStream {
+    int32 value = 1;
+}
+
+
+service PrimeNumber {
+    rpc getPrimeNumbers(PrimeValue) returns (stream PrimeValueStream);
+}
