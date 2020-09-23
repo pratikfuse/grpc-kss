@@ -2,5 +2,21 @@
   "name": "node-service",
   "version": "1.0.0",
   "main": "server.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc-watch app.ts --outDir ./dist --onSuccess 'node ./dist/app.js'"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.5",
+    "express": "^4.17.1",
+    "google-protobuf": "^3.13.0",
+    "grpc": "^1.24.3",
+    "grpc-tools": "^1.9.1",
+    "tsc": "^1.20150623.0",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "grpc_tools_node_protoc_ts": "^4.1.5"
+  }
 }

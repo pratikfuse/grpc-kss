@@ -1,14 +1,22 @@
-syntax="proto3";
+syntax = "proto3";
 
-message PrimeValue {
-    int32 value = 1;
+package greet;
+
+option go_package = ".;lib";
+
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply);
 }
 
-message PrimeValueStream {
-    int32 value = 1;
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
 }
 
-
-service PrimeNumber {
-    rpc getPrimeNumbers(PrimeValue) returns (stream PrimeValueStream);
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
 }
