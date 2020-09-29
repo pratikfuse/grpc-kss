@@ -30,16 +30,9 @@ function generateNodeProtoDefs() {
 
     echo "Generating proto defs for node"
 
-#     GEN=$(./node-service/node_modules/.bin/grpc_tools_node_protoc --js_out=import_style=commonjs,binary:node_service/lib --grpc_out=node_service/lib --plugin=protoc-gen-grpc=`./node-service/node_modules/.bin/grpc_tools_node_protoc_plugin` ./proto_files/*.proto)
-
-#     GEN=$(protoc --plugin=protoc-gen-ts=./node-service/node_modules/.bin/protoc-gen-ts --js_out=./node-service/lib --ts_out=./node-service/lib -I ./proto_files ./proto_files/*.proto)
 
     GEN=$(./node-service/node_modules/.bin/grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./node-service/lib --grpc_out=./node-service/lib ./proto_files/*.proto)
 
-#    GEN=$(protoc -I=./proto_files --js_out=import_style=commonjs,binary:node-service/lib --grpc_out=./node-service/lib ./proto_files/*.proto)
-
-
-    echo $GEN
 }
 
 if [[ $TYPE == "--all" ]]; then

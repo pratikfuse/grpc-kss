@@ -19,6 +19,5 @@ const protoDefs = protoLoader.loadSync(PROTO_PATH, {
 
 const client = new service.GreeterClient('localhost:9001', grpc.credentials.createInsecure())
 
-const request = new messages.HelloRequest()
 
-module.exports = {client, request}
+module.exports = {client, messages}

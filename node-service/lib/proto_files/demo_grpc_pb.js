@@ -26,6 +26,28 @@ function deserialize_greet_HelloRequest(buffer_arg) {
   return proto_files_demo_pb.HelloRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_greet_SortRequest(arg) {
+  if (!(arg instanceof proto_files_demo_pb.SortRequest)) {
+    throw new Error('Expected argument of type greet.SortRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_greet_SortRequest(buffer_arg) {
+  return proto_files_demo_pb.SortRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_greet_SortResponse(arg) {
+  if (!(arg instanceof proto_files_demo_pb.SortResponse)) {
+    throw new Error('Expected argument of type greet.SortResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_greet_SortResponse(buffer_arg) {
+  return proto_files_demo_pb.SortResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 // The greeting service definition.
 var GreeterService = exports.GreeterService = {
@@ -40,6 +62,28 @@ sayHello: {
     requestDeserialize: deserialize_greet_HelloRequest,
     responseSerialize: serialize_greet_HelloReply,
     responseDeserialize: deserialize_greet_HelloReply,
+  },
+  sayHelloStream: {
+    path: '/greet.Greeter/SayHelloStream',
+    requestStream: false,
+    responseStream: true,
+    requestType: proto_files_demo_pb.HelloRequest,
+    responseType: proto_files_demo_pb.HelloReply,
+    requestSerialize: serialize_greet_HelloRequest,
+    requestDeserialize: deserialize_greet_HelloRequest,
+    responseSerialize: serialize_greet_HelloReply,
+    responseDeserialize: deserialize_greet_HelloReply,
+  },
+  sort: {
+    path: '/greet.Greeter/Sort',
+    requestStream: true,
+    responseStream: false,
+    requestType: proto_files_demo_pb.SortRequest,
+    responseType: proto_files_demo_pb.SortResponse,
+    requestSerialize: serialize_greet_SortRequest,
+    requestDeserialize: deserialize_greet_SortRequest,
+    responseSerialize: serialize_greet_SortResponse,
+    responseDeserialize: deserialize_greet_SortResponse,
   },
 };
 

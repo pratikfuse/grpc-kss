@@ -4,11 +4,21 @@ package greet;
 
 option go_package = ".;lib";
 
+message SortRequest {
+  int32 num = 1;
+}
+
+message SortResponse {
+  repeated int32 result = 1;
+}
 
 // The greeting service definition.
 service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc SayHelloStream (HelloRequest) returns (stream HelloReply);
+  rpc Sort (stream SortRequest) returns (SortResponse);
+
 }
 
 // The request message containing the user's name.

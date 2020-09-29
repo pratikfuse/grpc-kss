@@ -1,0 +1,6 @@
+package concurrency
+
+
+func ExecuteWg(){
+
+}
